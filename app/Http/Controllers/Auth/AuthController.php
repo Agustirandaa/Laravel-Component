@@ -13,12 +13,12 @@ class AuthController extends Controller
 {
     public function index()
     {
-        return view('pages.auth.login', ['title' => 'Login Account']);
+        return view('pages.auth.login', ['title' => 'Login']);
     }
 
     public function register()
     {
-        return view('pages.auth.register', ['title' => 'Register Account']);
+        return view('pages.auth.register', ['title' => 'Register']);
     }
 
     public function store_register(Request $request)

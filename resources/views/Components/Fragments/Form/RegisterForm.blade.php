@@ -3,36 +3,39 @@
     @csrf
 
     <div class="col-span-2 md:col-span-1">
-        <x-Elements.Input label="Nama" cLabel="md:text-base font-semibold" name="fullname" type="text"
-            placeholder="Nama anda..." cInput="border-emerald-400" icon="user" cIcon="w-4" />
+        <x-Elements.Input label="Nama" name="fullname" type="text" placeholder="Nama anda..." icon="icon-user" />
+    </div>
+
+    <div class="col-span-2 md:col-span-1">
+        <x-Elements.Input label="Username" name="username" type="text" placeholder="Username anda..."
+            icon="icon-user" />
+    </div>
+
+    <div class="col-span-2 md:col-span-1">
+        <x-Elements.Input label="Email" name="email" type="email" placeholder="Email anda..."
+            icon="icon-envelope" />
+    </div>
+
+    <div class="col-span-2 md:col-span-1">
+        <x-Elements.Input label="Tanggal lahir" name="birthday" type="date" placeholder="Tanggal lahir ..."
+            icon="icon-calendar" />
+    </div>
+
+    <div class="col-span-2 md:col-span-1">
+        <x-Elements.Input.toggleinput label="Password" name="password" type="password" placeholder="Password anda..."
+            icon="icon-key" />
     </div>
     <div class="col-span-2 md:col-span-1">
-        <x-Elements.Input label="Username" cLabel="md:text-base font-semibold" name="username" type="text"
-            placeholder="Username anda..." cInput="border-emerald-400" icon="user" cIcon="w-4" />
-    </div>
-    <div class="col-span-2 md:col-span-1">
-        <x-Elements.Input label="Email" cLabel="md:text-base font-semibold" name="email" type="email"
-            placeholder="Email anda..." cInput="border-emerald-400" icon="user" cIcon="w-4" />
-    </div>
-    <div class="col-span-2 md:col-span-1">
-        <x-Elements.Input label="Tanggal lahir" cLabel="md:text-base font-semibold" name="birthday" type="date"
-            placeholder="Tanggal lahir ..." cInput="border-emerald-400" icon="calendar" cIcon="w-4" />
-    </div>
-    <div class="col-span-2 md:col-span-1">
-        <x-Elements.Input.toggleinput label="Password" cLabel="md:text-base font-semibold" name="password"
-            type="password" placeholder="Password anda..." cInput="border-emerald-400" icon="key" cIcon="w-4"
-            iconToggle="eye" iconToggle2="eye-slash" />
-    </div>
-    <div class="col-span-2 md:col-span-1">
-        <x-Elements.Input.toggleinput label="Konfirmasi Password" cLabel="md:text-base font-semibold"
-            name="confirm_password" type="password" placeholder="Password anda..." cInput="border-emerald-400"
-            icon="key" cIcon="w-4" iconToggle="eye" iconToggle2="eye-slash" />
+        <x-Elements.Input.toggleinput label="Konfirmasi Password" name="confirm_password" type="password"
+            placeholder="Password anda..." icon="icon-key" />
     </div>
 
     <div class="col-span-2">
-        <x-Elements.Button type="submit" class="justify-center w-full text-white bg-emerald-600">Sign
-            In</x-Elements.Button>
+        <x-Elements.Button type="submit" class="w-full font-semibold  justify-center text-white bg-blue-500 py-2.5">
+            Register
+        </x-Elements.Button>
     </div>
+
     <x-elements.Label class="text-neutral-700">
         Sudah mempunyai akun ?
         <x-elements.Link href="{{ route('login') }}"

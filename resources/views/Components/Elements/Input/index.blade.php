@@ -1,12 +1,30 @@
+@props([
+    'label' => '',
+    'cLabel' => 'font-semibold',
+    'name' => '',
+    'type' => 'text',
+    'placeholder' => '',
+    'cInput' => 'border-blue-200',
+    'icon' => '',
+    'cIcon' => 'w-4 text-blue-600',
+])
+
 <div class="space-y-2">
-    <x-Elements.Label :for="$label" :class="$cLabel">{{ $label }}</x-Elements.Label>
+
+    @if (!empty($label))
+        <x-Elements.Label :for="$label" :class="$cLabel">{{ $label }}</x-Elements.Label>
+    @endif
+
     <div class="relative w-full">
-        <div class="absolute inset-y-0 flex items-center px-3 pointer-events-none">
-            <x-Elements.Image src="{{ asset('svg/' . $icon . '.svg') }}" :class="$cIcon" alt="Svg-Icon" />
-        </div>
+        @if (!empty($icon))
+            <div class="absolute inset-y-0 flex items-center px-3 pointer-events-none">
+                @component('Components.Icons.' . $icon, ['class' => $cIcon])
+                @endcomponent
+            </div>
+        @endif
         <div>
-            <x-elements.Input.input :$name :$type :$placeholder :id="$label" :class="$cInput"
-                value="{{ old($name) }}" />
+            <x-elements.Input.input :$name :$type :$placeholder :class="$cInput" value="{{ old($name) }}"
+                :id="!empty($label) ? $label : ''" />
         </div>
     </div>
     @error($name)

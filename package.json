@@ -14,6 +14,7 @@
         "vite": "^5.0"
     },
     "dependencies": {
+        "@ckeditor/ckeditor5-build-classic": "^41.3.1",
         "alpinejs": "^3.13.10",
         "preline": "^2.1.0"
     }

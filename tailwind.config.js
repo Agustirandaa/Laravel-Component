@@ -8,6 +8,10 @@ export default {
     ],
     theme: {
         extend: {
+            colors: {
+                blue1: "#000EBF",
+                white1: "#F9FAFB",
+            },
             fontFamily: {
                 inter: ["Inter"],
             },

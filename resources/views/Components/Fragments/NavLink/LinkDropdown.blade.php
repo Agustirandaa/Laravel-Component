@@ -1,13 +1,20 @@
-<li {{ $attributes->merge(['class' => 'rounded-lg']) }} x-data="{ dropdownOpen: false }">
-    <x-Elements.Button type="button"
-        class="flex items-center justify-between w-full px-3 py-2 text-sm md:text-[15px] text-neutral-950"
+@props([
+    'class' => '',
+    'icon' => '',
+    'cIcon' => 'w-4 text-blue1',
+    'label' => 'Null Label',
+])
+
+<li class="rounded-lg {{ $class }}" x-data="{ dropdownOpen: false }" {{ $attributes }}>
+    <x-Elements.Button type="button" class="flex items-center justify-between w-full px-3 py-2 text-sm md:text-[15px]"
         x-on:click="dropdownOpen = !dropdownOpen">
         <div class="flex items-center gap-3">
-            <x-Elements.Image src="{{ asset('svg/' . $icon . '.svg') }}" :class="$cIcon" alt="Svg-Icon" />
+            @component('Components.Icons.' . $icon, ['class' => $cIcon])
+            @endcomponent
             {{ $label }}
         </div>
-        <x-Elements.Image src="{{ asset('svg/chevron.svg') }}" :class="$cIcon" alt="Svg-Icon"
-            x-bind:class="{ 'rotate-180 transition-all': dropdownOpen }" />
+        @component('Components.Icons.icon-chevron', ['class' => 'w-4', 'black' => 'white'])
+        @endcomponent
     </x-Elements.Button>
     <ul class="px-2 pb-2 mt-1 space-y-1 ps-5" x-show="dropdownOpen"
         x-transition:enter="transition-transform transition-opacity duration-200"

@@ -1,3 +1,10 @@
+@props([
+    'for' => '',
+    'class' => 'font-semibold',
+])
+
 <div>
-    <label {{ $attributes->merge(['class' => 'font-inter text-sm']) }}>{{ $slot }}</label>
+    <label class="font-inter text-[clamp(0.90rem,1vw,1rem)] {{ $class }}" for="{{ $for }}">
+        {{ $slot }}
+    </label>
 </div>

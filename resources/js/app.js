@@ -1,7 +1,7 @@
 import "./bootstrap";
 import "preline";
-
-// If you want Alpine's instance to be available everywhere.
-import Alpine from "alpinejs";
-Alpine.start();
-window.Alpine = Alpine;
+import "./scripts";
+import "./Alpine";
+import "./dataTables";
+import "./ckEditor";
+import "./Fetch";

@@ -1,8 +1,18 @@
+    @props([
+        'label' => '',
+        'icon' => '',
+        'cIcon' => 'w-4 text-blue1',
+    ])
+
     <div class="relative" x-data="{ dropdownOpen: false }" x-on:click.away="dropdownOpen = false">
-        <x-Elements.Button type="button" class="flex items-center gap-1.5" x-on:click="dropdownOpen = !dropdownOpen">
-            <x-Elements.Image src="{{ asset('svg/' . $icon . '.svg') }}" :class="$cIcon" alt="Svg-Icon" />
+        <x-Elements.Button type="button" class="flex items-center pe-3" x-on:click="dropdownOpen = !dropdownOpen">
+            @component('Components.Icons.' . $icon, ['class' => $cIcon])
+            @endcomponent
+
             {{ $label }}
-            <x-Elements.Image src="{{ asset('svg/chevron.svg') }}" :class="$cIcon" alt="Svg-Icon" />
+
+            @component('Components.Icons.icon-chevron', ['class' => 'w-4 text-blue1'])
+            @endcomponent
         </x-Elements.Button>
 
         <div class="absolute hidden right-0 px-1.5 py-2 mt-1 bg-white border shadow-sm border-neutral-100 rounded-lg min-w-60"
