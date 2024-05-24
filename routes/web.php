@@ -20,14 +20,17 @@ Route::prefix('auth')->middleware(['guest'])->group(function () {
 
 Route::prefix('dashboard')->middleware(['auth'])->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
     // Posting
     Route::prefix('posting')->group(function () {
-        Route::resource('/', PostingController::class)->names('posting');
+        Route::resource('/posts', PostingController::class)->names('posts');
     });
+
+    // All Slug
+    Route::get('/checkSlug', [DashboardController::class, 'checkSlug'])->name('checkSlug');
 });
+
 
 
 // Handle CK Editor Upload Image

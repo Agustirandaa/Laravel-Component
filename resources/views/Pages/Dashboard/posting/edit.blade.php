@@ -12,8 +12,9 @@
                 </x-Elements.Link>
             </div>
 
-            {{-- Form create --}}
-            <x-Fragments.Form.Posting.PostingForm action="{{ route('posts.store') }}" :categories="$categories" method="POST" />
+            {{-- Form Edit --}}
+            <x-Fragments.Form.Posting.PostingForm action="{{ route('posts.update', $post) }}" :categories="$categories"
+                :postEdit="$post" method="PUT" />
 
         </x-Layouts.DashboardLayout>
     </body>

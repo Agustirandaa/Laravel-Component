@@ -37,16 +37,20 @@
                 </td>
                 <td class="px-6 py-3.5 text-sm font-medium whitespace-nowrap text-start">
 
-                    <x-Elements.Link href="{{ route('posting.edit', $post->slug) }}"
-                        class="font-semibold text-blue-600 ">
+                    <x-Elements.Link href="{{ route('posts.edit', $post->id) }}" class="font-semibold text-blue-600 ">
                         Edit
                     </x-Elements.Link>
 
                     <span class="text-neutral-400">|</span>
-                    <button type="button"
-                        class="inline-flex items-center font-semibold text-blue-600 border border-transparent rounded-lg gap-x-2 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none text-sm lg:text-[14.3px]">
-                        Delete
-                    </button>
+                    <form action="{{ route('posts.destroy', $post->id) }}" method="POST" enctype="multipart/form-data"
+                        class="inline">
+                        @method('DELETE')
+                        @csrf
+                        <button type="submit"
+                            class="inline-flex items-center font-semibold text-blue-600 border border-transparent rounded-lg gap-x-2 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none text-sm lg:text-[14.3px]">
+                            Delete
+                        </button>
+                    </form>
                 </td>
             </tr>
         @endforeach

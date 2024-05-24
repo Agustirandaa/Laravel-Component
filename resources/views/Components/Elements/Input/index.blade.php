@@ -7,6 +7,7 @@
     'cInput' => 'border-blue-200',
     'icon' => '',
     'cIcon' => 'w-4 text-blue-600',
+    'value' => '',
 ])
 
 <div class="space-y-2">
@@ -23,8 +24,8 @@
             </div>
         @endif
         <div>
-            <x-elements.Input.input :$name :$type :$placeholder :class="$cInput" value="{{ old($name) }}"
-                :id="!empty($label) ? $label : ''" />
+            <x-elements.Input.input :$name :$type :$placeholder :$value :class="$cInput" :id="!empty($label) ? $label : ''"
+                {{ $attributes }} />
         </div>
     </div>
     @error($name)

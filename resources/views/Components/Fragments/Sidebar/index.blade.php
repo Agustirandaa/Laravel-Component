@@ -29,7 +29,7 @@
                 Dashboard
             </x-Fragments.NavLink>
 
-            <x-Fragments.NavLink href="{{ route('posting.index') }}" icon="icon-copy"
+            <x-Fragments.NavLink href="{{ route('posts.index') }}" icon="icon-copy"
                 class="hover:bg-blue-500 hover:text-white"
                 x-on:click="activeIndex === 1 ? activeIndex = null : activeIndex = 1; localStorage.setItem('activeIndex', 1)"
                 x-bind:class="{ 'bg-blue-500 text-white': activeIndex === 1 }">

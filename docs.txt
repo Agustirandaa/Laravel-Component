@@ -1,0 +1,3 @@
+Id pada tabel user menggunakan UUID, 
+$table->uuid('id')->primary();
+yang berarti bukan seperti ID biasanya bilang bulat, ini merupakan angka dan string gabungan. 

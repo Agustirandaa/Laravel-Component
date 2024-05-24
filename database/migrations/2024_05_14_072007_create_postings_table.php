@@ -12,13 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('postings', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')->constrained(table: 'Users', column: 'id');
+            $table->ulid('id')->primary();
+            $table->foreignUuid('user_id')->constrained(table: 'Users', column: 'id');
             $table->foreignId('category_id')->constrained(table: 'Categories', column: 'id');
-            $table->string('title');
-            $table->string('excerpt');
-            $table->string('slug');
-            $table->string('image')->nullable();
+            $table->string('title', 100);
+            $table->string('excerpt', 255);
+            $table->string('slug', 110)->unique();
+            $table->string('file')->nullable();
             $table->text('body');
             $table->timestamps();
         });

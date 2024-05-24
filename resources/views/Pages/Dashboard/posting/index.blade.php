@@ -30,7 +30,7 @@
 
             <div class="flex justify-end w-full gap-3 px-2 py-3 mt-2 mb-2 rounded-md bg-blue-50">
 
-                <x-Elements.Link href="{{ route('posting.create') }}"
+                <x-Elements.Link href="{{ route('posts.create') }}"
                     class="flex gap-1 px-5 py-2 text-white bg-blue-600 border-transparent rounded-full">
                     @component('Components.Icons.icon-plus', ['class' => 'w-5 h-5 text-white'])
                     @endcomponent

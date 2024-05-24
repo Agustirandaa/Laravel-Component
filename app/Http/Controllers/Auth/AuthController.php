@@ -26,7 +26,7 @@ class AuthController extends Controller
         $rules = ([
             'fullname' => 'required|max:50|min:5',
             'username' => 'required|max:30|min:5|unique:users',
-            'email' => 'required|email|unique:users',
+            'email' => 'required|email:dns|unique:users',
             'birthday' => 'required|max:12',
             'password' => 'required|max:255|min:5',
             'confirm_password' => 'required|max:255|min:5|same:password',
@@ -42,8 +42,8 @@ class AuthController extends Controller
     public function authenticate(Request $request): RedirectResponse
     {
         $credentials = $request->validate([
-            'email' => ['required', 'email'],
-            'password' => ['required'],
+            'email' => 'required|email:dns',
+            'password' => 'required',
         ]);
 
         if (Auth::attempt($credentials)) {

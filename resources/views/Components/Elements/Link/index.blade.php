@@ -3,4 +3,4 @@
     'class' => 'text-slate-950',
 ])
 
-<a class="font-inter text-sm {{ $class }}" href="{{ $href }}">{{ $slot }}</a>
+<a class="font-inter text-sm {{ $class }}" href="{{ $href }}" {{ $attributes }}>{{ $slot }}</a>
